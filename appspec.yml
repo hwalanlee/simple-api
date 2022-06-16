@@ -10,3 +10,22 @@ permissions:
     pattern: "**"
     owner: ec2-user
     group: ec2-user
+
+hooks:
+  # BeforeInstall:
+  #   - location: scripts/install_dependencies.sh
+  #     timeout: 300
+  #     runas: root
+  AfterInstall:
+    - location: scripts/after_install.sh
+      timeout: 300
+      runas: ec2-usesr
+  # ApplicationStart:
+  #   - location: scripts/start_server.sh
+  #   - location: scripts/create_test_db.sh
+  #     timeout: 300
+  #     runas: root
+  # ApplicationStop:
+  #   - location: scripts/stop_server.sh
+  #     timeout: 300
+  #     runas: root
